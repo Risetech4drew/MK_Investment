@@ -31,54 +31,31 @@
   });
 
   // mobile nav dropdown menu
-  const collapseDropdown = (dropdown) => {
-    const dropdownMenu = dropdown.querySelector(".dropdown-menu");
-    dropdown.classList.remove("active");
-    dropdownMenu.style.maxHeight = null;
-  };
-
-  // toggle dropdowns function
-  const toggleDropdown = (dropdown) => {
-    const dropdownMenu = dropdown.querySelector(".dropdown-menu");
-    if (dropdown.classList.contains("active")) {
-      collapseDropdown(dropdown);
-    } else {
-      // close any active dropdowns
-      select(".navbar .dropdown.active", true).forEach((activeDropdown) => {
-        collapseDropdown(activeDropdown);
-      });
-    }
-    dropdown.classList.add("active");
-    dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+  const collapseDropdown = () => {
+    const navbar = select(".navbar");
+    navbar
+      .querySelector(".dropdown.active .dropdown-menu")
+      .removeAttribute("style");
+    navbar.querySelector(".dropdown.active").classList.remove("active");
   };
 
   on("click", ".navbar", (e) => {
+    const navbar = select(".navbar");
     if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
       e.preventDefault();
-      const dropdown = e.target.closest(".dropdown");
-      if (e.target.getAttribute("data-toggle") === "dropdown-menu") {
-        toggleDropdown(dropdown);
-      } else if (e.target.getAttribute("data-toggle") === "nested-dropdown") {
-        const nestedDropdown = e.target.closest(".nested-dropdown");
-        const nestedDropdownMenu = nestedDropdown.querySelector(
-          ".nested-dropdown-menu"
-        );
 
-        if (nestedDropdown.classList.contains("active")) {
-          nestedDropdown.classList.remove("active");
-          nestedDropdownMenu.style.maxHeight = null;
-        } else {
-          nestedDropdown.classList.add("active");
-          nestedDropdownMenu.style.maxHeight =
-            nestedDropdownMenu.scrollHeight + "px";
-          /*adjust the parent dropdown to 
-          expand when the nested 
-          dropmenu is toggled 
-        */
-          const parentDropdownMenu = dropdown.querySelector(".dropdown-menu");
-          parentDropdownMenu.style.maxHeight =
-            parentDropdownMenu.scrollHeight + "px";
+      const menuDropdown = e.target.parentElement;
+
+      if (menuDropdown.classList.contains("active")) {
+        collapseDropdown();
+      } else {
+        if (navbar.querySelector(".dropdown.active")) {
+          collapseDropdown();
         }
+
+        menuDropdown.classList.add("active");
+        const dropdownMenu = menuDropdown.querySelector(".dropdown-menu");
+        dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
       }
     }
   });
