@@ -25,19 +25,22 @@
     <script defer src="/assets/src/js/main.js"></script>
   </head>
   <body class="">
-    <header class="fixed top-0 left-0 w-full">
-      <div
-        class="relative flex items-center justify-between p-4 bg-white shadow-lg z-50"
-      >
-        <a href="#" class="inline-block">
+    <header
+      class="border-2 border-red-600 bg-white w-full shadow-lg p-4 z-50 xl:flex xl:justify-between xl:items-center"
+    >
+      <div class="bg-white relative z-50 flex justify-between items-center">
+        <a href="#" class="">
           <img
             src="/assets/images/Mkay-Logo.png"
-            class="w-[50%]"
+            class="w-[50%] md:w-4/12 lg:w-1/4"
             alt="mkay investment company logo"
           />
         </a>
-        <svg class="ham hamRotate ham8" viewBox="0 0 100 100" width="100">
-          <!-- onclick="this.classList.toggle('active')" -->
+        <svg
+          class="ham hamRotate ham8 xl:hidden z-50"
+          viewBox="0 0 100 100"
+          width="100"
+        >
           <path
             class="line top"
             d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"
@@ -49,45 +52,89 @@
           />
         </svg>
       </div>
-      <nav class="navbar bg-white pb-2 text-accent p-4 z-40 shadow-lg">
-        <ul class="pt-4">
-          <li class="mb-4">
-            <a href="#" class="text-base capitalize">about us</a>
+      <nav
+        class="navbar bg-white xl:bg-transparent xl:grow text-accent p-4 xl:p-0 z-40 shadow-lg xl:shadow-none"
+      >
+        <ul class="pt-4 xl:pt-0 xl:flex xl:items-center xl:justify-end">
+          <li class="mb-4 xl:mb-0 xl:mr-8">
+            <a
+              href="#"
+              class="text-base capitalize xl:font-semibold cursor-pointer hover:text-gray-500 transition-all duration-75 ease-in-out"
+              >about us</a
+            >
           </li>
-          <li class="relative dropdown mb-4">
-            <span class="text-base capitalize" data-toggle="dropdown-menu"
+          <li class="dropdown relative mb-4 xl:mb-0 xl:mr-8">
+            <span
+              class="text-base capitalize xl:font-semibold cursor-pointer hover:text-gray-600 transition-all duration-75 ease-in-out"
+              data-toggle="dropdown-menu"
               >services
               <i class="fa-solid fa-angle-down"></i>
             </span>
             <ul
-              class="dropdown-menu relative left-2 max-h-0 overflow-hidden w-full transition-all duration-[0.3s] ease-in-out"
+              class="dropdown-menu relative z-50 left-2 max-h-0 xl:max-h-min overflow-hidden transition-all duration-[0.3s] ease-in-out"
             >
-              <li class="mb-2">
-                <a href="#" class="text-base capitalize">graphic designing</a>
+              <li class="mb-2 xl:mb-0">
+                <a
+                  href="#"
+                  class="text-base capitalize cursor-pointer hover:text-gray-600 transition-all duration-75 ease-in-out"
+                  >graphic designing</a
+                >
               </li>
-              <li class="mb-2">
-                <a href="#" class="text-base capitalize">motion graphics</a>
+              <li class="mb-2 xl:mb-0">
+                <a
+                  href="#"
+                  class="text-base capitalize cursor-pointer hover:text-gray-600 transition-all duration-75 ease-in-out"
+                  >motion graphics</a
+                >
               </li>
-              <li class="mb-2">
-                <a href="#" class="text-base capitalize">web development</a>
+              <li class="mb-2 xl:mb-0">
+                <a
+                  href="#"
+                  class="text-base capitalize cursor-pointer hover:text-gray-600 transition-all duration-75 ease-in-out"
+                  >web development</a
+                >
               </li>
-              <li class="mb-2">
-                <a href="#" class="text-base capitalize">app development</a>
+              <li class="mb-2 xl:mb-0">
+                <a
+                  href="#"
+                  class="text-base capitalize cursor-pointer hover:text-gray-600 transition-all duration-75 ease-in-out"
+                  >app development</a
+                >
               </li>
-              <li class="mb-2">
-                <a href="#" class="text-base capitalize">printing</a>
+              <li class="mb-2 xl:mb-0">
+                <a
+                  href="#"
+                  class="text-base capitalize cursor-pointer hover:text-gray-600 transition-all duration-75 ease-in-out"
+                  >printing</a
+                >
               </li>
-              <li class="mb-2">
-                <a href="#" class="text-base capitalize">embroidery</a>
+              <li class="mb-2 xl:mb-0">
+                <a
+                  href="#"
+                  class="text-base capitalize cursor-pointer hover:text-gray-600 transition-all duration-75 ease-in-out"
+                  >embroidery</a
+                >
               </li>
-              <li><a href="#" class="text-base capitalize">branding</a></li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base capitalize cursor-pointer hover:text-gray-600 transition-all duration-75 ease-in-out"
+                  >branding</a
+                >
+              </li>
             </ul>
           </li>
-          <li class="mb-4">
-            <a href="#" class="text-base capitalize">projects</a>
+          <li class="mb-4 xl:mb-0 xl:mr-8">
+            <a
+              href="#"
+              class="text-base capitalize xl:font-semibold cursor-pointer hover:text-gray-600 transition-all duration-75 ease-in-out"
+              >projects</a
+            >
           </li>
-          <li class="bg-accent text-white w-max p-2 rounded-lg">
-            <a href="#" class="text-base font-semibold tracking-wide capitalize"
+          <li class="bg-accent text-white w-max p-2 xl:p-1 rounded-lg xl:mr-8">
+            <a
+              href="#"
+              class="text-base font-semibold tracking-wide capitalize cursor-pointer"
               >contact us</a
             >
           </li>
