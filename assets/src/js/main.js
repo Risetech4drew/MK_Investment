@@ -41,7 +41,7 @@
 
   on("click", ".navbar", (e) => {
     const navbar = select(".navbar");
-    if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
+    if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 1024) {
       e.preventDefault();
 
       const menuDropdown = e.target.parentElement;

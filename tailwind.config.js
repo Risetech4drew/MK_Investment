@@ -14,6 +14,10 @@ module.exports = {
         accent: "#A34928",
         accentLight: "#5D180E",
       },
+      backgroundImage: {
+        "hero-pattern": "url('/assets/images/flat-geometric-background.png')",
+      },
+
       container: {
         center: true,
         padding: {
