@@ -99,3 +99,7 @@
 .nested-dropdown-menu.active {
   transform: translateY(0);
 }
+
+.txt {
+  border-right: 3px solid #a34928;
+}

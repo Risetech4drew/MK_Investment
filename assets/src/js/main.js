@@ -59,4 +59,62 @@
       }
     }
   });
+
+  class TypeWritter {
+    constructor(textElement, words, wait = 3000) {
+      this.textElement = textElement;
+      this.words = words;
+      this.txt = "";
+      this.wait = parseInt(wait, 10);
+      this.wordIndex = 0;
+      this.type();
+      this.isDeleting = false;
+    }
+    type() {
+      // getting current index
+      const current = this.wordIndex % this.words.length;
+      // get word from the current index
+      const fullTxt = this.words[current];
+      // check if deleting
+      if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      }
+      // adding char
+      else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+      // inserting text into the DOM
+      this.textElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+      let typeSpeed = 100;
+
+      if (this.isDeleting) {
+        typeSpeed /= 2;
+      }
+      // if word is complete
+      if (!this.isDeleting && this.txt === fullTxt) {
+        typeSpeed = this.wait;
+        // setting isDeleting to true
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === "") {
+        this.isDeleting = false;
+        // move to the next word
+        this.wordIndex++;
+        // pause abit before type starts
+        typeSpeed = 100;
+      }
+      setTimeout(() => this.type(), typeSpeed);
+    }
+  }
+
+  function initTypeWritter() {
+    if (select(".typewriter-text")) {
+      const textElement = document.querySelector(".typewriter-text");
+      const words = JSON.parse(textElement.getAttribute("data-words"));
+      const wait = textElement.getAttribute("data-wait");
+
+      new TypeWritter(textElement, words, wait);
+    }
+  }
+  initTypeWritter();
 })();
