@@ -17,6 +17,9 @@ module.exports = {
       backgroundImage: {
         "hero-pattern": "url('/assets/images/flat-geometric-background.png')",
       },
+      aspectRatio: {
+        "9/14": "9 / 14",
+      },
 
       container: {
         center: true,
