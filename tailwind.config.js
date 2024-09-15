@@ -17,6 +17,7 @@ module.exports = {
       backgroundImage: {
         "hero-pattern": "url('/assets/images/flat-geometric-background.png')",
         "contact-bkg": "url('/assets/images/contact_bg.jpg')",
+        "aboutUs-bkg": "url('/assets/images/business_team.jpg')",
       },
       aspectRatio: {
         "9/14": "9 / 14",

@@ -1073,6 +1073,10 @@ video {
   background-image: url('/assets/images/flat-geometric-background.png');
 }
 
+.bg-aboutUs-bkg {
+  background-image: url('/assets/images/business_team.jpg');
+}
+
 .from-accent {
   --tw-gradient-from: #A34928 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(163 73 40 / 0) var(--tw-gradient-to-position);
