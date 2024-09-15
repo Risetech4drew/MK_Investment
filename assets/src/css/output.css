@@ -777,6 +777,10 @@ video {
   height: 100%;
 }
 
+.h-56 {
+  height: 14rem;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -823,6 +827,18 @@ video {
   width: max-content;
 }
 
+.w-\[27\%\] {
+  width: 27%;
+}
+
+.w-\[25\%\] {
+  width: 25%;
+}
+
+.w-\[30\%\] {
+  width: 30%;
+}
+
 .flex-shrink {
   flex-shrink: 1;
 }
@@ -833,6 +849,10 @@ video {
 
 .flex-grow {
   flex-grow: 1;
+}
+
+.flex-grow-0 {
+  flex-grow: 0;
 }
 
 .grow {
@@ -1113,6 +1133,10 @@ video {
   background-position: center;
 }
 
+.bg-bottom {
+  background-position: bottom;
+}
+
 .bg-no-repeat {
   background-repeat: no-repeat;
 }
@@ -1144,6 +1168,10 @@ video {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-4 {
@@ -1238,6 +1266,10 @@ video {
   padding-top: 1.25rem;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1278,6 +1310,11 @@ video {
 
 .text-xl {
   font-size: clamp(1.42rem, calc(1.06rem + 1.80vw), 2.34rem);
+  line-height: 1.4;
+}
+
+.text-sm {
+  font-size: clamp(1.00rem, calc(0.92rem + 0.39vw), 1.20rem);
   line-height: 1.4;
 }
 
@@ -1674,12 +1711,24 @@ ul.breadcrumb li + li::before {
     display: none;
   }
 
+  .md\:h-56 {
+    height: 14rem;
+  }
+
   .md\:w-1\/2 {
     width: 50%;
   }
 
   .md\:w-4\/12 {
     width: 33.333333%;
+  }
+
+  .md\:w-\[50\%\] {
+    width: 50%;
+  }
+
+  .md\:w-\[35\%\] {
+    width: 35%;
   }
 
   .md\:grid-cols-2 {
@@ -1753,6 +1802,22 @@ ul.breadcrumb li + li::before {
     width: 25%;
   }
 
+  .lg\:w-\[30\%\] {
+    width: 30%;
+  }
+
+  .lg\:w-\[27\%\] {
+    width: 27%;
+  }
+
+  .lg\:w-\[25\%\] {
+    width: 25%;
+  }
+
+  .lg\:w-\[50\%\] {
+    width: 50%;
+  }
+
   .lg\:grow {
     flex-grow: 1;
   }
@@ -1798,6 +1863,10 @@ ul.breadcrumb li + li::before {
     padding: 0px;
   }
 
+  .lg\:p-4 {
+    padding: 1rem;
+  }
+
   .lg\:pt-0 {
     padding-top: 0px;
   }
@@ -1810,6 +1879,11 @@ ul.breadcrumb li + li::before {
   .lg\:text-3xl {
     font-size: clamp(1.80rem, calc(1.08rem + 3.63vw), 3.66rem);
     line-height: 1.1;
+  }
+
+  .lg\:text-xl {
+    font-size: clamp(1.42rem, calc(1.06rem + 1.80vw), 2.34rem);
+    line-height: 1.4;
   }
 
   .lg\:shadow-lg {
