@@ -116,5 +116,89 @@
       new TypeWritter(textElement, words, wait);
     }
   }
+
   initTypeWritter();
+
+  class CollapseManager {
+    static instance = null;
+
+    constructor() {
+      if (CollapseManager.instance) {
+        return CollapseManager.instance;
+      }
+      CollapseManager.instance = this;
+
+      this.collapseElements = document.querySelectorAll(".collapse-content");
+      this.toggleButtons = document.querySelectorAll(".collapse-toggle");
+      this.init();
+    }
+
+    init() {
+      this.removeExistingListeners();
+      this.addEventListeners();
+      this.setInitialStates();
+      this.handleResize();
+    }
+
+    removeExistingListeners() {
+      this.toggleButtons.forEach((button) => {
+        button.removeEventListener("click", this.toggleCollapseHandler);
+      });
+      window.removeEventListener("resize", this.handleResize);
+    }
+
+    addEventListeners() {
+      this.toggleButtons.forEach((button) => {
+        button.addEventListener("click", this.toggleCollapseHandler);
+      });
+      window.addEventListener("resize", () => this.handleResize());
+    }
+
+    setInitialStates() {
+      this.collapseElements.forEach((element) => {
+        const maxHeight = element.dataset.collapseMaxHeight || 100;
+        element.style.setProperty("--max-height", `${maxHeight}px`);
+      });
+    }
+
+    toggleCollapseHandler = (event) => {
+      const button = event.currentTarget;
+      const targetId = button.dataset.collapseToggle;
+      const target = document.querySelector(
+        `[data-collapse-target="${targetId}"]`
+      );
+
+      // For debugging
+      console.log("Button clicked");
+
+      if (target) {
+        target.classList.toggle("collapsed");
+        button.textContent = target.classList.contains("collapsed")
+          ? "Read More"
+          : "Read Less";
+      } else {
+        console.error(
+          `No element found with data-collapse-target="${targetId}"`
+        );
+      }
+    };
+
+    handleResize = () => {
+      const isMobile = window.innerWidth < 768;
+      this.collapseElements.forEach((element) => {
+        element.classList.toggle("collapsed", isMobile);
+      });
+
+      this.toggleButtons.forEach((button) => {
+        button.style.display = isMobile ? "inline-block" : "none";
+        button.textContent = "Read More";
+      });
+    };
+  }
+
+  // Ensure the manager is only initialized once when the DOM is ready
+  let collapseManager;
+  document.addEventListener("DOMContentLoaded", () => {
+    collapseManager = new CollapseManager();
+  });
 })();
