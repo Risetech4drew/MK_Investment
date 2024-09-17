@@ -223,14 +223,49 @@
   toggleScrollToTopBtn();
 
   // set current time for video
-  const videoTimeControl = () => {
-    const video = document.getElementById("companyVideo");
-    video.addEventListener("loadedmetadata", function () {
-      // Set the current time to 0.02 seconds
-      video.currentTime = 2;
-      console.log(video.currentTime);
-    });
+  const VideoController = {
+    setStartTime: function (videoElement, startTime) {
+      const seekAndPause = () => {
+        videoElement.currentTime = startTime;
+        videoElement.pause();
+        videoElement.removeEventListener("loadedmetadata", seekAndPause);
+        videoElement.removeEventListener("canplay", seekAndPause);
+      };
+
+      if (videoElement.readyState >= 2) {
+        seekAndPause();
+      } else {
+        videoElement.addEventListener("loadedmetadata", seekAndPause);
+        videoElement.addEventListener("canplay", seekAndPause);
+      }
+
+      videoElement.addEventListener("play", function onFirstPlay() {
+        videoElement.currentTime = startTime;
+        videoElement.removeEventListener("play", onFirstPlay);
+      });
+    },
+    play: (videoElement) => {
+      const playPromise = videoElement.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log("Autoplay was prevented:", error);
+        });
+      }
+    },
   };
 
-  videoTimeControl();
+  const initializeVideo = (videoId, startTime) => {
+    const video = document.getElementById(videoId);
+    if (video) {
+      VideoController.setStartTime(video, startTime);
+      // Uncomment the next line if you want to attempt autoplay
+      // VideoController.play(video);
+    } else {
+      console.error("Video element not found with id:", videoId);
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeVideo("companyVideo", 2);
+  });
 })();
