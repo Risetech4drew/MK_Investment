@@ -221,4 +221,16 @@
   };
   window.addEventListener("scroll", toggleScrollToTopBtn);
   toggleScrollToTopBtn();
+
+  // set current time for video
+  const videoTimeControl = () => {
+    const video = document.getElementById("companyVideo");
+    video.addEventListener("loadedmetadata", function () {
+      // Set the current time to 0.02 seconds
+      video.currentTime = 2;
+      console.log(video.currentTime);
+    });
+  };
+
+  videoTimeControl();
 })();

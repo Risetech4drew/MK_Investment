@@ -189,8 +189,10 @@
       <section class="pt-10">
         <div class="container lg:flex gap-4">
           <video
+            id="companyVideo"
             src="/assets/video/VID-20240820-WA0032.mp4"
             controls
+            type="video/mp4"
             class="rounded-lg mb-4 lg:w-[50%] shadow-lg"
           ></video>
           <div class="lg:w-[50%]">
@@ -213,5 +215,24 @@
         </div>
       </section>
     </main>
+    <button
+      id="scrollToTopBtn"
+      class="fixed right-8 bottom-8 animate-bounce bg-gradient-to-bl from-accent to-accentLight text-white p-2 rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        />
+      </svg>
+    </button>
   </body>
 </html>
