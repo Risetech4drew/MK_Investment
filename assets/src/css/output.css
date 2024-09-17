@@ -785,6 +785,14 @@ video {
   height: 1.5rem;
 }
 
+.h-60 {
+  height: 15rem;
+}
+
+.h-64 {
+  height: 16rem;
+}
+
 .h-\[100vh\] {
   height: 100vh;
 }
@@ -849,6 +857,14 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.max-w-prose {
+  max-width: 65ch;
+}
+
+.max-w-px {
+  max-width: 1px;
 }
 
 .flex-shrink {
@@ -1276,12 +1292,28 @@ video {
   padding-bottom: 1rem;
 }
 
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
 .pl-2 {
   padding-left: 0.5rem;
 }
 
+.pl-20 {
+  padding-left: 5rem;
+}
+
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
+}
+
+.pr-20 {
+  padding-right: 5rem;
 }
 
 .pr-4 {
@@ -1777,6 +1809,10 @@ ul.breadcrumb li + li::before {
 }
 
 @media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+
   .md\:grid {
     display: grid;
   }
@@ -1785,8 +1821,8 @@ ul.breadcrumb li + li::before {
     display: none;
   }
 
-  .md\:h-56 {
-    height: 14rem;
+  .md\:h-64 {
+    height: 16rem;
   }
 
   .md\:w-1\/2 {
@@ -1799,6 +1835,10 @@ ul.breadcrumb li + li::before {
 
   .md\:w-\[50\%\] {
     width: 50%;
+  }
+
+  .md\:w-\[70\%\] {
+    width: 70%;
   }
 
   .md\:grid-cols-2 {
@@ -1829,6 +1869,21 @@ ul.breadcrumb li + li::before {
   .md\:text-base {
     font-size: clamp(1.13rem, calc(0.98rem + 0.73vw), 1.50rem);
     line-height: 1.5;
+  }
+
+  .md\:text-xl {
+    font-size: clamp(1.42rem, calc(1.06rem + 1.80vw), 2.34rem);
+    line-height: 1.4;
+  }
+
+  .md\:text-2xl {
+    font-size: clamp(1.60rem, calc(1.08rem + 2.59vw), 2.93rem);
+    line-height: 1.2;
+  }
+
+  .md\:text-4xl {
+    font-size: clamp(2.03rem, calc(1.03rem + 4.98vw), 4.58rem);
+    line-height: 1;
   }
 }
 
